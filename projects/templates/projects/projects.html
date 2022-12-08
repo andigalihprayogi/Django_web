@@ -1,0 +1,33 @@
+{% extends "main.html" %} {% block content %}
+<p>
+    you are in {{msg}} page
+</p>
+{% if number > 10 %}
+<p>
+    Number greater than 10, your number is {{number}}
+</p>
+{% elif number == 10 %}
+<p>
+    Number is exactly 10
+</p>
+{% else %}
+<p>
+    Number less than 10, your number is {{number}}
+</p>
+{% endif %}
+
+<hr>
+
+<h1>Projects Template</h1>
+<ul>
+    {% for project in projects %}
+    <li>
+        Title: <a href="{% url 'project' project.id %}">{{project.title}}</a> --- {{project.description}}
+    </li>
+
+    
+    {% endfor %}
+</ul>
+
+
+{% endblock content %}
